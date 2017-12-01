@@ -56,7 +56,7 @@ class CategoriesController < ApplicationController
   private
 
   def find_root_categories
-    @parent_categories = Category.all.each { |c| c.ancestry = c.ancestry.to_s + (c.ancestry != nil ? "/" : '') + c.id.to_s
+    @parent_categories = Category.roots.each { |c| c.ancestry = c.ancestry.to_s + (c.ancestry != nil ? "/" : '') + c.id.to_s
       }.sort {|x,y| x.ancestry <=> y.ancestry
       }.map{ |c| ["-" * (c.depth - 1) + c.name,c.id]
       }.unshift(["-- none --", nil])
