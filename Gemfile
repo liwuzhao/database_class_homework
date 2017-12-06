@@ -37,6 +37,7 @@ gem 'bootstrap-sass'
 gem 'ancestry'
 gem 'awesome_rails_console'
 gem 'simple_form'
+gem 'jquery-rails'
 
 
 
