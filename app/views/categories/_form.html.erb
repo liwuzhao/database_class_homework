@@ -1,0 +1,17 @@
+<%= form_for @category do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="form-group">
+    <label for="ancestry" class="control-label">名称:</label>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <label for="ancestry" class="control-label">所属分类:</label>
+    <%= f.select :parent_id, @parent_categories, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "保存", class: 'btn btn-primary' %>
+  </div>
+<% end %>
