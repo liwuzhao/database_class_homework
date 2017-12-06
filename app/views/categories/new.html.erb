@@ -1,6 +1,7 @@
 <div class="container, col-md-offset-4 col-md-3">
 
-  <%= form_for :category, url: categories_path, method: :post do |f| %>
+  <%= form_for @category, url: categories_path, method: :post do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
 
     <div class="form-group">
       <label for="ancestry" class="control-label">名称:</label>
@@ -16,5 +17,5 @@
       <%= f.submit "保存", class: 'btn btn-primary' %>
     </div>
   <% end %>
-  
+
 </div>
