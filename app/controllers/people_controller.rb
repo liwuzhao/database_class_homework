@@ -41,6 +41,12 @@ class PeopleController < ApplicationController
     flash[:alert] = "成功删除人员"
   end
 
+  def search
+    @people = Person.where("number = ? OR name = ?", params[:search_message], params[:search_message])
+
+    render file: 'people/index'
+  end
+
   private
 
   def find_person
