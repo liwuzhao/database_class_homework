@@ -4,4 +4,6 @@ class Category < ApplicationRecord
   validates_uniqueness_of :name, message: "该分类已存在"
 
   has_ancestry
+
+  has_many :people
 end

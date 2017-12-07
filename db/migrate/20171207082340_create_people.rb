@@ -11,6 +11,7 @@ class CreatePeople < ActiveRecord::Migration[5.1]
       t.string :education
       t.datetime :working_time
       t.datetime :come_university_time
+      t.integer :category_id
       t.timestamps
     end
   end

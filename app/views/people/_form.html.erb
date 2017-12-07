@@ -1,0 +1,17 @@
+<%= simple_form_for @person do |f| %>
+
+  <%= f.input :number %>
+  <%= f.input :name %>
+  <%= f.association :category %>
+
+  <%= f.input :sex %>
+  <%= f.input :age %>
+  <%= f.input :work_position %>
+  <%= f.input :title %>
+  <%= f.input :political_status %>
+  <%= f.input :education %>
+  <%= f.input :working_time %>
+  <%= f.input :come_university_time %>
+
+  <%= f.button :submit %>
+<% end %>
