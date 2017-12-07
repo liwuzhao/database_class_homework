@@ -1,41 +1,43 @@
-<div class="pull-right">
-  <%= link_to "添加人员", new_person_path, class: "btn btn-primary" %>
-</div>
-<div class="">
-  <table class="table table-striped">
-    <tr>
-      <th>编号</th>
-      <th>名称</th>
-      <th>人员类别</th>
-      <th>性别</th>
-      <th>年龄</th>
-      <th>职务</th>
-      <th>职称</th>
-      <th>政治面貌</th>
-      <th>最高学历</th>
-      <th>任职时间</th>
-      <th>来院时间</th>
-      <th></th>
-    </tr>
-
-    <% @people.each do |person| %>
+<main>
+  <div class="pull-right">
+    <%= link_to "添加人员", new_person_path, class: "btn btn-primary" %>
+  </div>
+  <div class="">
+    <table class="table table-striped">
       <tr>
-        <td><%= person.number %></td>
-        <td><%= person.name %></td>
-        <td><%= person.category.name %></td>
-        <td><%= person.sex %></td>
-        <td><%= person.age %></td>
-        <td><%= person.work_position %></td>
-        <td><%= person.title %></td>
-        <td><%= person.political_status %></td>
-        <td><%= person.education %></td>
-        <td><%= person.working_time.strftime("%Y/%m/%d") %></td>
-        <td><%= person.come_university_time.strftime("%Y/%m/%d") %></td>
-        <td align="right">
-          <%= link_to "编辑", edit_person_path(person) %>
-          <%= link_to "删除", person_path(person), method: :delete, 'data-confirm': "确认删除吗?" %>
-        </td>
+        <th>编号</th>
+        <th>名称</th>
+        <th>人员类别</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>职务</th>
+        <th>职称</th>
+        <th>政治面貌</th>
+        <th>最高学历</th>
+        <th>任职时间</th>
+        <th>来院时间</th>
+        <th></th>
       </tr>
-    <% end -%>
-  </table>
-</div>
+
+      <% @people.each do |person| %>
+        <tr>
+          <td><%= person.number %></td>
+          <td><%= person.name %></td>
+          <td><%= person.category.name %></td>
+          <td><%= person.sex %></td>
+          <td><%= person.age %></td>
+          <td><%= person.work_position %></td>
+          <td><%= person.title %></td>
+          <td><%= person.political_status %></td>
+          <td><%= person.education %></td>
+          <td><%= person.working_time.strftime("%Y/%m/%d") %></td>
+          <td><%= person.come_university_time.strftime("%Y/%m/%d") %></td>
+          <td align="right">
+            <%= link_to "编辑", edit_person_path(person) %>
+            <%= link_to "删除", person_path(person), method: :delete, 'data-confirm': "确认删除吗?" %>
+          </td>
+        </tr>
+      <% end -%>
+    </table>
+  </div>  
+</main>

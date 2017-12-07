@@ -1,17 +1,22 @@
 <%= simple_form_for @person do |f| %>
 
-  <%= f.input :number %>
-  <%= f.input :name %>
-  <%= f.association :category %>
 
-  <%= f.input :sex %>
-  <%= f.input :age %>
-  <%= f.input :work_position %>
-  <%= f.input :title %>
-  <%= f.input :political_status %>
-  <%= f.input :education %>
-  <%= f.input :working_time %>
-  <%= f.input :come_university_time %>
+  <%= f.input :number, label: "人员编号", error: "输入为空字符或该编号已存在" %>
+  <%= f.input :name, label: "姓名", error: "不能为空" %>
 
-  <%= f.button :submit %>
+
+  <%= f.association :category, label: "人员分类", error: "不能为空" %>
+  <%= f.input :sex, collection: ["男","女"], selected: "男", label: "性别", error: "不能为空" %>
+
+  <%= f.input :age, label: "年龄", error: "输入为空或超出范围（18 ~ 80）" %>
+  <%= f.input :work_position, label: "职位", error: "不能为空" %>
+  <%= f.input :title, label: "职称", error: "不能为空" %>
+  <%= f.input :political_status, label: "政治面貌", error: "不能为空" %>
+  <%= f.input :education, collection: ['专科','本科','硕士','博士'], selected: "本科", label: "最高学历", error: "不能为空" %>
+
+  <%= f.input :working_time, label: "任职时间", error: "不能为空" %>
+  <%= f.input :come_university_time, label: "来院时间", error: "不能为空" %>
+
+  <%= f.button :submit, @person.new_record? ? "新建人员" : "编辑人员" %>
 <% end %>
+<br>

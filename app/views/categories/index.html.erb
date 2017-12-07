@@ -1,26 +1,28 @@
-<div class="pull-right">
-  <%= link_to "新建分类", new_category_path, class: "btn btn-primary" %>
-</div>
-<div class="">
-  <table class="table table-striped">
-    <tr>
-      <th>ID</th>
-      <th>名称</th>
-      <th></th>
-    </tr>
-
-    <% @categories.each do |category| %>
+<main>
+  <div class="pull-right">
+    <%= link_to "新建分类", new_category_path, class: "btn btn-primary" %>
+  </div>
+  <div class="">
+    <table class="table table-striped">
       <tr>
-        <td><%= category.id %></td>
-        <td><%= category.name %></td>
-        <td align="right">
-          <%= link_to "编辑", edit_category_path(category) %>
-          <%= link_to "删除", category_path(category), method: :delete, 'data-confirm': "确认删除吗?" %>
-          <% if category.children? %>
-            <%= link_to "查看子分类", categories_path(id: category) %>
-          <% end -%>
-        </td>
+        <th>ID</th>
+        <th>名称</th>
+        <th></th>
       </tr>
-    <% end -%>
-  </table>
-</div>
+
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.id %></td>
+          <td><%= category.name %></td>
+          <td align="right">
+            <%= link_to "编辑", edit_category_path(category) %>
+            <%= link_to "删除", category_path(category), method: :delete, 'data-confirm': "确认删除吗?" %>
+            <% if category.children? %>
+              <%= link_to "查看子分类", categories_path(id: category) %>
+            <% end -%>
+          </td>
+        </tr>
+      <% end -%>
+    </table>
+  </div>
+</main>

@@ -37,7 +37,7 @@ class PeopleController < ApplicationController
 
   def destroy
     @person.destroy
-    redirect_to :people_path
+    redirect_to people_path
     flash[:alert] = "成功删除人员"
   end
 
