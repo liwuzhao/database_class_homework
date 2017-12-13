@@ -12,4 +12,5 @@ class Person < ApplicationRecord
   def to_param
     "#{self.number}"
   end
+
 end

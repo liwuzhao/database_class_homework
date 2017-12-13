@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
   before_action :find_person, only: [:edit, :update, :destroy]
 
   def index
-    @people = Person.all
+    @people = Person.all.includes(:category)
   end
 
   def edit
