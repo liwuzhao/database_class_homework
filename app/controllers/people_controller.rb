@@ -4,6 +4,26 @@ class PeopleController < ApplicationController
 
   def index
     @people = Person.all.includes(:category).page params[:page]
+
+    # 按人员类别分类
+    if params[:category].present?
+      @people = @people.where(:category => params[:category])
+    end
+
+    # 按 年龄/来院时间 排序
+    @people = case params[:order]
+      when "按年龄降序排序"
+        @people.order("age DESC").page params[:page]
+      when "按年龄升序排序"
+        @people.order("age ASC").page params[:page]
+      when "按来院时间降序排序"
+        @people.order("come_university_time DESC")
+      when "按年龄升序排序"
+        @people.order("come_university_time ASC")
+      else
+        @people
+    end
+
   end
 
   def edit
