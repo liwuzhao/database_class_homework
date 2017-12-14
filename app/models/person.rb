@@ -13,4 +13,7 @@ class Person < ApplicationRecord
     "#{self.number}"
   end
 
+  paginates_per 10
+
+
 end

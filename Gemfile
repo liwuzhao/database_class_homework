@@ -39,6 +39,8 @@ gem 'awesome_rails_console'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'faker'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 
 

@@ -12,8 +12,26 @@
 
   <% end %>
 
-  <div class="person">
-    <%= render partial: "person_item", collection: @people, as: :person %>
-  </div>
+  <table class="table">
+    <tr style="background-color: gray">
+      <th>编号</th>
+      <th>名称</th>
+      <th>人员类别</th>
+      <th>性别</th>
+      <th>年龄</th>
+      <th>职务</th>
+      <th>职称</th>
+      <th>政治面貌</th>
+      <th>最高学历</th>
+      <th>任职时间</th>
+      <th>来院时间</th>
+      <th></th>
+    </tr>
 
+    <%= render partial: "person_item", collection: @people, as: :person %>
+
+  </table>
+  <div class="text-center">
+    <%= paginate @people, window: 1, :theme => 'twitter-bootstrap-3' %>
+  </div>
 </main>
