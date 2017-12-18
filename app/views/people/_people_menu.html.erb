@@ -3,22 +3,17 @@
   <%= link_to "添加人员", new_person_path, class: "btn btn-primary" %>
 </div>
 
-<% Category.find_each do |category| %>
-  <div class='btn-group clearfix btn btn-menu'>
-      <%= link_to(category.name, people_path(people_filiters(:category => category)))%>
-  </div>
-<% end %>
+<br>
+<div>
 
+  <%= form_tag search_people_path, class:"navbar-form navbar-left", method: :get do %>
+    <input type="text" name="search_message" value="<%= params[:search_message] %>" class="form-control search-input"
+      placeholder="输入姓名或者编号" required>
+    <button type="submit" class="btn btn-default">搜索</button>
+  <% end %>
 
-<%= form_tag search_people_path, class:"navbar-form navbar-left", method: :get do %>
-  <input type="text" name="search_message" value="<%= params[:search_message] %>" class="form-control search-input"
-    placeholder="输入姓名或者编号" required>
-  <button type="submit" class="btn btn-default">搜索</button>
-<% end %>
-
-
-<div class="right-box">
-  <div class="dropdown btn-group clearfix">
+  <!-- 排序方式 -->
+  <div class="dropdown btn-group clearfix" style="margin-top:5px">
     <% if params[:order].present? %>
       <button class="btn btn-reorder dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <%= params[:order] %> <span class="caret"></span>
@@ -29,7 +24,6 @@
       </button>
     <% end %>
 
-    <!-- 選項：列出排序方式 -->
     <ul class="reorder dropdown-menu ">
       <li><%= link_to("默认排序", people_path) %></li>
       <li><%= link_to("按年龄降序排序", people_path( people_filiters(:order => "按年龄降序排序") ))%></li>
@@ -38,4 +32,26 @@
       <li><%= link_to("按来院时间升序排序", people_path( people_filiters(:order => "按来院时间降序排序") ))%></li>
     </ul>
   </div>
+
+  <!-- 分类筛选 -->
+  <div class="dropdown btn-group clearfix" style="margin-top:5px">
+    <% if params[:category].present? %>
+      <button class="btn btn-reorder dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <%= category_people_count(@category) %> <span class="caret"></span>
+      </button>
+    <% else %>
+      <button class="btn btn-reorder dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+         所有人员 <span class="caret"></span>
+      </button>
+    <% end %>
+
+    <ul class="reorder dropdown-menu ">
+      <% Category.find_each do |category| %>
+        <li>
+          <%= render_category_list(category) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
 </div>

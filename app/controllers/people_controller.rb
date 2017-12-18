@@ -7,8 +7,11 @@ class PeopleController < ApplicationController
 
     # 按人员类别分类
     if params[:category].present?
-      @people = @people.where(:category => params[:category])
+      @category = Category.find(params[:category])
+      @people = @people.where(:category => @category)
     end
+
+
 
     # 按 年龄/来院时间 排序
     @people = case params[:order]
@@ -76,5 +79,7 @@ class PeopleController < ApplicationController
   def person_params
     params.require(:person).permit!
   end
+
+
 
 end
