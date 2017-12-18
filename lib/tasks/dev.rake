@@ -24,7 +24,7 @@ namespace :dev do
         education: education_arr.sample,
         working_time: Faker::Time.between(20.years.ago, Date.today, :all),
         come_university_time: Faker::Time.between(20.days.ago, Date.today, :all),
-        category_id: [1,2,3,4,5].sample
+        category_id: [2,3,4,5,6].sample
       )
     end
   end

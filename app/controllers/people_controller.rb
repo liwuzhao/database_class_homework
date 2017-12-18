@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
 
   def index
     @people = Person.all.includes(:category).page params[:page]
-
+    @all_people_count = Person.all.count
     # 按人员类别分类
     if params[:category].present?
       @category = Category.find(params[:category])
