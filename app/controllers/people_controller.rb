@@ -62,7 +62,7 @@ class PeopleController < ApplicationController
   end
 
   def search
-    @people = Person.where("number = ? OR name = ?", params[:search_message], params[:search_message])
+    @people = Person.where("number = ? OR name = ?", params[:search_message], params[:search_message]).page params[:page]
 
     render file: 'people/index'
   end
