@@ -8,7 +8,12 @@ class PeopleController < ApplicationController
     # 按人员类别分类
     if params[:category].present?
       @category = Category.find(params[:category])
-      @people = @people.where(:category => @category)
+      if @category.root? && @category.has_children?
+        @categories = @category.children
+        @people = @people.where(:category => @categories)
+      else
+        @people = @people.where(:category => @category)
+      end
     end
 
 

@@ -6,12 +6,12 @@
 
 
   <%= f.association :category, label: "人员分类", error: "不能为空" %>
-  <%= f.input :sex, collection: ["男","女"], selected: "男", label: "性别", error: "不能为空" %>
+  <%= f.input :sex, collection: ["男","女"], label: "性别", error: "不能为空" %>
 
   <%= f.input :age, label: "年龄", error: "输入为空或超出范围（18 ~ 80）" %>
   <%= f.input :work_position, label: "职位", error: "不能为空" %>
   <%= f.input :title, label: "职称", error: "不能为空" %>
-  <%= f.input :political_status, label: "政治面貌", error: "不能为空" %>
+  <%= f.input :political_status, collection: ["群众","团员","党员"], label: "政治面貌", error: "不能为空" %>
   <%= f.input :education, collection: ['专科','本科','硕士','博士'], selected: "本科", label: "最高学历", error: "不能为空" %>
 
   <%= f.input :working_time, label: "任职时间", error: "不能为空" %>
