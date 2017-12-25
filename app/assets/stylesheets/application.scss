@@ -17,6 +17,16 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- main {
-   min-height: 724px;
+ .sift-menu{
+   margin-top: 8px;
  }
+
+//---------Dropdown------------
+.dropdown-menu li a:hover {
+  background-color: grey !important;
+}
+
+/* Dropdown links */
+.dropdown-menu li a {
+  color: #000 !important;
+}

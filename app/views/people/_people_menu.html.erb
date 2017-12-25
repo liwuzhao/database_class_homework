@@ -13,18 +13,18 @@
   <% end %>
 
   <!-- 排序方式 -->
-  <div class="dropdown btn-group clearfix" style="margin-top:5px">
+  <div class="dropdown btn-group sift-menu">
     <% if params[:order].present? %>
-      <button class="btn btn-reorder dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <%= params[:order] %> <span class="caret"></span>
       </button>
     <% else %>
-      <button class="btn btn-reorder dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
          默认 <span class="caret"></span>
       </button>
     <% end %>
 
-    <ul class="reorder dropdown-menu ">
+    <ul class="dropdown-menu">
       <li><%= link_to("默认排序", people_path( people_filiters( :order => "" ) )) %></li>
       <li><%= link_to("按年龄降序排序", people_path( people_filiters(:order => "按年龄降序排序") ))%></li>
       <li><%= link_to("按年龄升序排序", people_path( people_filiters(:order => "按年龄升序排序") ))%></li>
@@ -34,18 +34,18 @@
   </div>
 
   <!-- 分类筛选 -->
-  <div class="dropdown btn-group clearfix" style="margin-top:5px">
+  <div class="dropdown btn-group clearfix sift-menu">
     <% if params[:category].present? %>
-      <button class="btn btn-reorder dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <%= category_people_count(@category) %> <span class="caret"></span>
       </button>
     <% else %>
-      <button class="btn btn-reorder dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
          所有人员 ( <%= @all_people_count %>人 ) <span class="caret"></span>
       </button>
     <% end %>
 
-    <ul class="reorder dropdown-menu ">
+    <ul class="dropdown-menu">
         <li><%= link_to("所有人员( #{ @all_people_count}人 )", people_path( people_filiters( :category => "" ) )) %></li>
       <% Category.find_each do |category| %>
         <li>
