@@ -2,3 +2,30 @@
   <%= render 'form' %>
 
 </div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#person_category_id option[value='1']").attr("disabled","disabled"); //设置value为1的option为disabled
+
+
+    var i = 2;
+
+    function alertsub(a){
+      temp = $('#person_category_id option[value=' + a + ']');
+
+      temp_text = temp.text()
+      temp.text("---- " + temp_text);
+    }
+
+    while(i < 4){
+      alertsub(i);
+      i++;
+    }
+
+
+
+  })
+
+
+</script>
