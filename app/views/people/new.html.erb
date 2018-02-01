@@ -6,12 +6,11 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#person_category_id option[value='1']").attr("disabled","disabled"); //设置value为1的option为disabled
+    $("#person_category_id option[value='1']").attr("disabled","disabled"); //有子分类的root分类设为disabled
 
-
+    //子分类加上 "---"
     var i = 2;
-
-    function alertsub(a){
+    function modifySub(a){
       temp = $('#person_category_id option[value=' + a + ']');
 
       temp_text = temp.text()
@@ -19,11 +18,9 @@
     }
 
     while(i < 4){
-      alertsub(i);
+      alertSub(i);
       i++;
     }
-
-
 
   })
 
